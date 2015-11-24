@@ -26,6 +26,9 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
+    hashtag_finder(@tweet.content).each do |hashtag|
+      Hashtag.find_or_create_by(name: hashtag)
+    end
 
     respond_to do |format|
       if @tweet.save
@@ -36,6 +39,10 @@ class TweetsController < ApplicationController
         format.json { render json: @tweet.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def hashtag_finder(str)
+    str.split(" ").select{|word| word[0] == '#'}
   end
 
 

@@ -3,7 +3,7 @@ class StaticController < ApplicationController
   def index
     @tweet = Tweet.new
     if logged_in?
-      @tweets = Tweet.relevant_to(current_user)
+      @tweets = current_user.relevant_tweets
     else
       @tweets = Tweet.all
     end
