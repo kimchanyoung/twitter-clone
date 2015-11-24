@@ -1,12 +1,6 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
 
-  def recent
-    Tweet.ordered_json
-    tweets = Tweet.ordered_json(current_user)
-    render json: tweets
-  end
-
   # GET /tweets
   # GET /tweets.json
   def index
