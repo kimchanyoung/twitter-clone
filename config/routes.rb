@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
+  get 'tweets/recent', to: 'tweets#recent'
+  get '/register' => 'users#new'
+  get '/login' => 'sessions#new'
+  get '/logout' => 'sessions#delete'
+  root to: 'static#index'
+  post 'tweets', to: 'tweets#create'
   resources :hashtags, only: [:new, :create, :show, :index]
   resources :tweets, only: [:new, :create, :show, :index]
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
-  get '/register' => 'users#new'
-  get '/login' => 'sessions#new'
-  get '/logout' => 'sessions#delete'
-  get 'tweets/recent', to: 'tweets#recent'
-  post 'tweets', to: 'tweets#create'
 
-  root to: 'static#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
