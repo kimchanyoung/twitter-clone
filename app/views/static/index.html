@@ -29,7 +29,9 @@
   <section id="tweets-container">
     <h3>Tweets</h3>
     <ul>
-
+      <% @tweets.each do |tweet| %>
+        <li><%= tweet.content %> - <%= link_to tweet.user.username, user_path(tweet.user) %></li>
+      <% end %>
     </ul>
   </section>
 </section>
