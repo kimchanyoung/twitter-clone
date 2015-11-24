@@ -66,7 +66,6 @@ class HashtagsController < ApplicationController
     def set_hashtag
       @hashtag = Hashtag.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def hashtag_params
       params.require(:hashtag).permit(:name)

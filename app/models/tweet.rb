@@ -8,8 +8,4 @@ class Tweet < ActiveRecord::Base
   def hashtag_names
     self.hashtags.pluck(:name)
   end
-
-  def self.ordered_json(user)
-    includes(:follows).where(follows: {followee_id: user.id}).order("created_at DESC").limit(50).to_json(methods: :hashtag_names)
-  end
 end

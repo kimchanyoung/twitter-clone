@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   has_many :followers, through: :followeds, source: :follower
 
   validates :username, uniqueness: true, presence: true
+
+  def relevant_tweets
+    Tweet.where(user_id: (followees.pluck(:id) + [id])).order("created_at DESC").limit(50)
+  end
 end
