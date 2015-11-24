@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/register' => 'users#new'
   get '/login' => 'sessions#new'
   get '/logout' => 'sessions#delete'
+  get 'tweets/recent', to: 'tweets#recent'
+  post 'tweets', to: 'tweets#create'
 
   root to: 'static#index'
   # The priority is based upon order of creation: first created -> highest priority.
