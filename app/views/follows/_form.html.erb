@@ -1,0 +1,9 @@
+<%= form_for(@follow) do |f| %>
+
+  <div class="field">
+    <%= f.hidden_field :followee_id, value: followee.id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
