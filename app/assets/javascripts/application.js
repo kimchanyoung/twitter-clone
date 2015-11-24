@@ -13,7 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-//= require twitter_models
-//= require twitter_views
-//= require twitter_controller
+//= require twitter-mvc
 //= require handlebars
